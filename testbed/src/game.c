@@ -10,13 +10,11 @@ b8 game_initialize(game *game_inst)
 
 b8 game_update(game *game_inst, f32 delta_time)
 {
-    KDEBUG("Updating game.");
     return TRUE;
 }
 
 b8 game_render(game *game_inst, f32 delta_time)
 {
-    KDEBUG("Rendering game.");
     return TRUE;
 }
 
