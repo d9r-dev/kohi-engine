@@ -68,7 +68,7 @@ b8 event_register(u16 code, void *listener, PFN_on_event on_event)
     }
 
     u64 registered_count = darray_length(state.registered_events[code].events);
-    for (u64 i = 0; i < registered_count; i++)
+    for (u64 i = 0; i < registered_count; ++i)
     {
         if (state.registered_events[code].events[i].listener == listener)
         {
@@ -98,7 +98,7 @@ b8 event_unregister(u16 code, void *listener, PFN_on_event on_event)
     }
 
     u64 registered_count = darray_length(state.registered_events[code].events);
-    for (u64 i = 0; i < registered_count; i++)
+    for (u64 i = 0; i < registered_count; ++i)
     {
         registered_event e = state.registered_events[code].events[i];
         if (e.listener == listener && e.on_event == on_event)
@@ -124,7 +124,7 @@ b8 event_fire(u16 code, void *sender, event_context data)
     }
 
     u64 registered_count = darray_length(state.registered_events[code].events);
-    for (u64 i = 0; i < registered_count; i++)
+    for (u64 i = 0; i < registered_count; ++i)
     {
         registered_event e = state.registered_events[code].events[i];
         if (e.on_event(code, sender, e.listener, data))
