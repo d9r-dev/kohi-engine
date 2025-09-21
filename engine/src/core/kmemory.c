@@ -1,7 +1,8 @@
 #include "kmemory.h"
-
 #include "core/logger.h"
 #include "platform/platform.h"
+#include "core/kstring.h"
+
 #include <string.h>
 #include <stdio.h>
 
@@ -124,6 +125,6 @@ char *get_memory_usage_str()
         i32 length = snprintf(buffer + offset, 8000, "  %s: %.2f%s\n", memory_tag_strings[i], amount, unit);
         offset += length;
     }
-    char* out_string = _strdup(buffer);
+    char *out_string = string_duplicate(buffer);
     return out_string;
 }
