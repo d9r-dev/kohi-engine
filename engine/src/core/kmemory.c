@@ -34,7 +34,7 @@ static struct memory_stats stats;
 
 void initialize_memory()
 {
-    platform_zero_memory(&stats, sizeof(memory_stats));
+    platform_zero_memory(&stats, sizeof(stats));
 }
 
 void shutdown_memory()
