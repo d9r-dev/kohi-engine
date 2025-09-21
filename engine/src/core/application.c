@@ -2,6 +2,7 @@
 #include "platform/platform.h"
 #include "core/logger.h"
 #include "game_types.h"
+#include "core/kmemory.h"
 
 typedef struct application_state
 {
@@ -19,6 +20,7 @@ static application_state app_state;
 
 b8 application_create(game *game_inst)
 {
+    KINFO(get_memory_usage_str());
     if (initialized)
     {
         KERROR("Application already created.");
